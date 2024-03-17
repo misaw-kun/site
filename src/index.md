@@ -1,5 +1,5 @@
 ---
-title: /home/wasim
+title: ''
 layout: home.njk
 ---
 
@@ -14,10 +14,9 @@ Fine, sank-you. <a href="https://www.youtube.com/watch?v=nlLhw1mtCFA" target="_b
 ~
 
 Okay jokes aside, I am **Wasim** &middot; */V&alpha;&middot;seem/*,\
-a ~~fullstack, halfstack, nostack~~ <u>Software Developer</u> & *UX guy*,\
-primarily dealing with the **Web** for a living, the past 2 years.\
+a ~~fullstack, halfstack, nostack~~ <u>Software Developer</u> with some interests in UX and Systems Programming (*really ?!*) 😥, primarily dealing with the **Web** for a living, the past 2 years.\
 \
 I decided to start this site to collect my thoughts, learnings, eurekas!\
-& whatever come may 😼.
+one entry at a time 😮‍💨.
 
 

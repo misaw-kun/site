@@ -2,17 +2,18 @@
 layout: base.njk
 ---
 
-<header>
-  <h1>{{ title }}</h1>
-</header>
 <main>
   <article>
     {{ content | safe }}
   </article>
   <br/>
   <hr>
-
-  <h2>Latest Entries</h2>
+  <div class="blog-list-header">
+    <h2>Latest Entries</h2>
+    <a href="/entries">More
+      {% phosphor "caret-double-right", "duotone" %}
+    </a>
+  </div>
   <hr>
   <br/>
 
