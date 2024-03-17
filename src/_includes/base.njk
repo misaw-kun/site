@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}
+      {% if page.url != '/' %} | {{ meta.siteName }}
+      {% endif %}
+    </title>
+    <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
+  </head>
+  <body>
+    {# {% include "nav.njk" %} #}
+
+    {{ content | safe }}
+
+    <footer>
+      <span>{% phosphor "map-pin", "duotone" %} Made in Delhi, IN</span>
+      <span>
+        {% phosphor "scroll",
+        "duotone" %}
+        <a href="#" target="_blank">
+        colophon</a>
+        &nbsp;
+          {% phosphor "github-logo", "duotone" %}
+        <a href="#">
+          misaw-kun/site
+        </a>
+      </span>
+    </footer>
+
+  </body>
+</html>
