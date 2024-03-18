@@ -40,3 +40,25 @@ layout: bloglist.njk
     <a href="#">See more {% phosphor "caret-double-right", "duotone" %}</a>
   </li>
 </ol>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const listItems = document.querySelectorAll('.timeline-container li');
+
+    const callback = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && window.innerWidth <= 768) {
+          entry.target.style.opacity = 1;
+        } else {
+          entry.target.style.opacity = 0.3;
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(callback, {threshold: 0.7});
+
+    listItems.forEach(item => {
+      observer.observe(item);
+    });
+  })
+</script>

@@ -214,12 +214,12 @@ ol {
   padding-inline-start: 2.5em;
   padding-block: 1.5em;
   position: relative;
-  opacity: 0.7;
+  opacity: 0.3;
   transition: opacity 0.15s ease-in-out;
 }
 
 .timeline-element:hover {
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 .timeline-element::before {
