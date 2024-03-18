@@ -6,6 +6,7 @@
   --width: 720px;
   --font-main: "Roboto Mono", monospace;
   --font-secondary: "Roboto Mono", monospace;
+  --font-tertiary: "Share Tech", sans-serif;
   --font-scale: 1em;
   --background-color: #f0e7d6;
   --heading-color: #1a1d26;
@@ -15,7 +16,7 @@
   --main-color: #ea2e00;
   --code-background-color: #f2f2f2;
   --code-color: #222;
-  --blockquote-color: #222;
+  --blockquote-color: #ea2e00;
 }
 
 /* hiding default scrollbar */
@@ -120,6 +121,7 @@ code {
 }
 
 blockquote {
+  position: relative;
   border-left: 1px solid var(--blockquote-color);
   color: var(--code-color);
   padding-left: 20px;
@@ -197,6 +199,43 @@ td {
   font-size: 1em;
 }
 
+/* entry listing page */
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.timeline-container {
+  margin-inline-start: 2.5rem;
+}
+
+.timeline-element {
+  padding-inline-start: 2.5em;
+  padding-block: 1.5em;
+  position: relative;
+  opacity: 0.7;
+  transition: opacity 0.15s ease-in-out;
+}
+
+.timeline-element:hover {
+  opacity: 1;
+}
+
+.timeline-element::before {
+  content: "";
+  position: absolute;
+  height: 85%;
+  top: 60px;
+  left: 0;
+  border-left: 2px solid var(--text-color);
+  opacity: 0.3;
+}
+
+.timeline-element:last-child::before {
+  height: 95%;
+}
+
 /* media queries */
 @media only screen and (max-width: 600px) {
   :root {
@@ -212,6 +251,10 @@ td {
   footer {
     flex-direction: column;
   }
+  .timeline-container,
+  blockquote {
+    margin-inline-start: 1.25rem;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -223,7 +266,7 @@ td {
     --visited-color: #f0e7d6;
     --main-color: #9dbdb8;
     --code-background-color: #f2f2f2;
-    --code-color: #222;
-    --blockquote-color: #222;
+    --code-color: #f0e7d6;
+    --blockquote-color: #9dbdb8;
   }
 }
