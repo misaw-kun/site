@@ -2,6 +2,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
+:root {
+  --width: 720px;
+  --font-main: 'Roboto Mono', monospace;
+  --font-secondary: 'Roboto Mono', monospace;
+  --font-tertiary: 'Share Tech', sans-serif;
+  --font-scale: 1em;
+  background-image: radial-gradient(
+    var(--main-color) 0.6px,
+    var(--background-color) 0.6px
+  );
+  --background-color: #f0e7d6;
+  --heading-color: #000000;
+  --text-color: #1a1d26;
+  --link-color: #1a1d26;
+  --visited-color: #1a1d26;
+  --main-color: #ea2e00;
+  --code-background-color: #f2f2f2;
+  --code-color: #222;
+  --blockquote-color: #ea2e00;
+  background-size: 26px 26px;
+  background-attachment: fixed;
+}
+
 /* color schemes */
 [data-theme='dark'] {
   --background-color: #1a1d26;
@@ -13,32 +36,6 @@
   --code-background-color: #f2f2f2;
   --code-color: #f0e7d6;
   --blockquote-color: #9dbdb8;
-}
-
-[data-theme='light'] {
-  --background-color: #f0e7d6;
-  --heading-color: #000000;
-  --text-color: #1a1d26;
-  --link-color: #1a1d26;
-  --visited-color: #1a1d26;
-  --main-color: #ea2e00;
-  --code-background-color: #f2f2f2;
-  --code-color: #222;
-  --blockquote-color: #ea2e00;
-}
-
-:root {
-  --width: 720px;
-  --font-main: 'Roboto Mono', monospace;
-  --font-secondary: 'Roboto Mono', monospace;
-  --font-tertiary: 'Share Tech', sans-serif;
-  --font-scale: 1em;
-  background-image: radial-gradient(
-    var(--main-color) 0.6px,
-    var(--background-color) 0.6px
-  );
-  background-size: 26px 26px;
-  background-attachment: fixed;
 }
 
 /* hiding default scrollbar */
@@ -63,6 +60,9 @@ body {
   scrollbar-width: none;
   filter: sepia(20%) brightness(95%) saturate(150%);
   border-inline: 3px dotted var(--text-color);
+  transition:
+    color 350ms ease 0s,
+    background 350ms ease 0s;
 }
 
 h1,

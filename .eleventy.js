@@ -6,6 +6,7 @@ module.exports = function (eleventyConfig) {
   // eleventyConfig.addPassthroughCopy("./src/js/");
   eleventyConfig.addPassthroughCopy("./src/bundle.js");
   eleventyConfig.addWatchTarget("./src/css/");
+  eleventyConfig.addWatchTarget("./src/_js/");
 
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
