@@ -1,19 +1,23 @@
 {% set currentUrl %}{{ page.url }}{% endset %}
 
+{# TODO: slated for future, if needed #}
 <nav>
   <ul role="list">
     <li>
-      <a {% if currentUrl === '/' %}aria-current="page"{% endif %} href="/">Home</a>
+      <a {% if currentUrl === '/' %}aria-current="page"{% endif %} href="/"
+        >Home</a
+      >
     </li>
 
     {% for page in collections.pages %}
-    <li>
-      <a
-        {% if currentUrl === page.url %}aria-current="page"{% endif %}
-        href="{{ page.url }}">
+      <li>
+        <a
+          {% if currentUrl === page.url %}aria-current="page"{% endif %}
+          href="{{ page.url }}"
+        >
           {{ page.data.title }}
-      </a>
-    </li>
-    {%- endfor %}
+        </a>
+      </li>
+    {%- endfor -%}
   </ul>
 </nav>

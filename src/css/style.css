@@ -1,15 +1,23 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Share+Tech&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
-:root {
-  --width: 720px;
-  --font-main: "Roboto Mono", monospace;
-  --font-secondary: "Roboto Mono", monospace;
-  --font-tertiary: "Share Tech", sans-serif;
-  --font-scale: 1em;
+/* color schemes */
+[data-theme='dark'] {
+  --background-color: #1a1d26;
+  --heading-color: #f0e7d6;
+  --text-color: #f0e7d6;
+  --link-color: #f0e7d6;
+  --visited-color: #f0e7d6;
+  --main-color: #9dbdb8;
+  --code-background-color: #f2f2f2;
+  --code-color: #f0e7d6;
+  --blockquote-color: #9dbdb8;
+}
+
+[data-theme='light'] {
   --background-color: #f0e7d6;
-  --heading-color: #1a1d26;
+  --heading-color: #000000;
   --text-color: #1a1d26;
   --link-color: #1a1d26;
   --visited-color: #1a1d26;
@@ -17,6 +25,20 @@
   --code-background-color: #f2f2f2;
   --code-color: #222;
   --blockquote-color: #ea2e00;
+}
+
+:root {
+  --width: 720px;
+  --font-main: 'Roboto Mono', monospace;
+  --font-secondary: 'Roboto Mono', monospace;
+  --font-tertiary: 'Share Tech', sans-serif;
+  --font-scale: 1em;
+  background-image: radial-gradient(
+    var(--main-color) 0.6px,
+    var(--background-color) 0.6px
+  );
+  background-size: 26px 26px;
+  background-attachment: fixed;
 }
 
 /* hiding default scrollbar */
@@ -36,9 +58,11 @@ body {
   overflow-wrap: break-word;
   line-height: 1.5;
   color: var(--text-color);
-  /* overscroll-behavior: none; */
+  overscroll-behavior-block: none;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  filter: sepia(20%) brightness(95%) saturate(150%);
+  border-inline: 3px dotted var(--text-color);
 }
 
 h1,
@@ -68,9 +92,19 @@ a:hover {
 
 header {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 40px;
   padding-bottom: 20px;
   border-bottom: 3px dotted var(--text-color);
+}
+
+.theme-toggle,
+.theme-toggle--toggled {
+  background: none;
+  border: 0;
+  margin: 0;
+  color: var(--main-color);
 }
 
 header > h1 {
@@ -122,7 +156,7 @@ code {
 
 blockquote {
   position: relative;
-  border-left: 1px solid var(--blockquote-color);
+  border-left: 2px solid var(--blockquote-color);
   color: var(--code-color);
   padding-left: 20px;
   font-style: italic;
@@ -215,17 +249,18 @@ ol {
   padding-block: 1.5em;
   position: relative;
   opacity: 0.3;
-  transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
 }
 
+/* the !important flag exists to override scroll illumination for desktop */
 .timeline-element:hover {
   opacity: 1 !important;
 }
 
 .timeline-element::before {
-  content: "";
+  content: '';
   position: absolute;
-  height: 85%;
+  height: 80%;
   top: 60px;
   left: 0;
   border-left: 2px solid var(--text-color);
@@ -233,13 +268,32 @@ ol {
 }
 
 .timeline-element:last-child::before {
-  height: 95%;
+  height: 70%;
+}
+
+/* tags container */
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 1rem;
+}
+
+.tag {
+  background-color: var(--main-color);
+  color: var(--background-color);
+  padding: 0.25rem;
+  border-radius: 5px;
+  border-bottom: none;
 }
 
 /* media queries */
 @media only screen and (max-width: 600px) {
   :root {
     --font-scale: 0.9em;
+  }
+  body {
+    border-inline: none;
   }
   ul.blog-posts li {
     flex-direction: column;
@@ -252,21 +306,8 @@ ol {
     flex-direction: column;
   }
   .timeline-container,
-  blockquote {
-    margin-inline-start: 1.25rem;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-color: #1a1d26;
-    --heading-color: #f0e7d6;
-    --text-color: #f0e7d6;
-    --link-color: #f0e7d6;
-    --visited-color: #f0e7d6;
-    --main-color: #9dbdb8;
-    --code-background-color: #f2f2f2;
-    --code-color: #f0e7d6;
-    --blockquote-color: #9dbdb8;
+  blockquote,
+  .tags-container {
+    margin-inline-start: 1rem;
   }
 }

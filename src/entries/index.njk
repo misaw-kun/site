@@ -4,9 +4,14 @@ layout: bloglist.njk
 ---
 
 <blockquote>
-  {% phosphor "quotes",
-  "duotone", {size: 24, style: "vertical-align: baseline"} %}
-  Consider this a <strong>commit history</strong> of my life so far lol.</blockquote>
+  {%
+    phosphor "quotes",
+    "duotone", {size: 24, style: "vertical-align: baseline"}
+  %}
+  Consider this as a <strong>commit history</strong> of my life so far lol.
+</blockquote>
+
+<br />
 
 <ol class="timeline-container">
   {# 20 words limit for the description #}
@@ -15,38 +20,51 @@ layout: bloglist.njk
     {% phosphor "git-commit", "duotone", { size: 32, style: "position: absolute; top: 20px; left: -15px" } %}
     <time>February 2022</time>
     <h3>A post of Markdown Elements</h3>
-    <p>Suspendisse non scelerisque odio. Etiam lacinia leo sed tellus viverra mattis. Nullam maximus enim enim, ut faucibus mauris aliquam in. Ut ultricies nibh ut posuere porttitor. Nullam cursus rhoncus pellentesque. In bibendum pulvinar accumsan. Vivamus tincidunt non mauris et fermentum. Aenean tincidunt leo ac tortor pretium, sed ultrices magna mollis.</p>
+    <p>
+      Suspendisse non scelerisque odio. Etiam lacinia leo sed tellus viverra
+      mattis. Nullam maximus enim enim, ut faucibus mauris aliquam in.
+    </p>
     <a href="#">See more {% phosphor "caret-double-right", "duotone" %}</a>
   </li>
   <li class="timeline-element">
     {% phosphor "git-commit", "duotone", { size: 32, style: "position: absolute; top: 20px; left: -15px" } %}
     <time>February 2022</time>
     <h3>A post of Markdown Elements</h3>
-    <p>Suspendisse non scelerisque odio. Etiam lacinia leo sed tellus viverra mattis. Nullam maximus enim enim, ut faucibus mauris aliquam in. Ut ultricies nibh ut posuere porttitor. Nullam cursus rhoncus pellentesque. In bibendum pulvinar accumsan. Vivamus tincidunt non mauris et fermentum. Aenean tincidunt leo ac tortor pretium, sed ultrices magna mollis.</p>
+    <p>
+      Suspendisse non scelerisque odio. Etiam lacinia leo sed tellus viverra
+      mattis. Nullam maximus enim enim, ut faucibus mauris aliquam in.
+    </p>
     <a href="#">See more {% phosphor "caret-double-right", "duotone" %}</a>
   </li>
   <li class="timeline-element">
     {% phosphor "git-commit", "duotone", { size: 32, style: "position: absolute; top: 20px; left: -15px" } %}
     <time>February 2022</time>
     <h3>A post of Markdown Elements</h3>
-    <p>Suspendisse non scelerisque odio. Etiam lacinia leo sed tellus viverra mattis. Nullam maximus enim enim, ut faucibus mauris aliquam in. Ut ultricies nibh ut posuere porttitor. Nullam cursus rhoncus pellentesque. In bibendum pulvinar accumsan. Vivamus tincidunt non mauris et fermentum. Aenean tincidunt leo ac tortor pretium, sed ultrices magna mollis.</p>
+    <p>
+      Suspendisse non scelerisque odio. Etiam lacinia leo sed tellus viverra
+      mattis. Nullam maximus enim enim, ut faucibus mauris aliquam in.
+    </p>
     <a href="#">See more {% phosphor "caret-double-right", "duotone" %}</a>
   </li>
   <li class="timeline-element">
     {% phosphor "git-commit", "duotone", { size: 32, style: "position: absolute; top: 20px; left: -15px" } %}
     <time>February 2022</time>
     <h3>A post of Markdown Elements</h3>
-    <p>Suspendisse non scelerisque odio. Etiam lacinia leo sed tellus viverra mattis. Nullam maximus enim enim, ut faucibus mauris aliquam in. Ut ultricies nibh ut posuere porttitor. Nullam cursus rhoncus pellentesque. In bibendum pulvinar accumsan. Vivamus tincidunt non mauris et fermentum. Aenean tincidunt leo ac tortor pretium, sed ultrices magna mollis.</p>
+    <p>
+      Suspendisse non scelerisque odio. Etiam lacinia leo sed tellus viverra
+      mattis. Nullam maximus enim enim, ut faucibus mauris aliquam in.
+    </p>
     <a href="#">See more {% phosphor "caret-double-right", "duotone" %}</a>
   </li>
 </ol>
 
+{# snippet for scroll illumination in mobile #}
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const listItems = document.querySelectorAll('.timeline-container li');
+    const listItems = document.querySelectorAll(".timeline-container li");
 
     const callback = (entries, observer) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting && window.innerWidth <= 768) {
           entry.target.style.opacity = 1;
         } else {
@@ -55,10 +73,10 @@ layout: bloglist.njk
       });
     };
 
-    const observer = new IntersectionObserver(callback, {threshold: 0.7});
+    const observer = new IntersectionObserver(callback, { threshold: 0.7 });
 
-    listItems.forEach(item => {
+    listItems.forEach((item) => {
       observer.observe(item);
     });
-  })
+  });
 </script>

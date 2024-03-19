@@ -1,20 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>~{{ title }}
-      {% if page.url != '/' %} | {{ meta.siteName }}
-      {% endif %}
+    <script>
+      {# dom blocker to stop theme flickering #}
+      function setTheme(themeOnDemand) {
+       if(!themeOnDemand) {
+        defaultPref = localStorage.theme !== undefined ?
+        localStorage.theme
+        :
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark" : "light";
+        document.documentElement.dataset.theme = defaultPref;
+       } else {
+        localStorage.theme = themeOnDemand;
+        document.documentElement.dataset.theme = themeOnDemand;
+       }
+      };
+      setTheme();
+    </script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      ~{{ title }} {% if page.url != '/' %} | {{ meta.siteName }} {% endif %}
     </title>
-    <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
-    {# <link rel="preload" href="{{ '/js/winbox.bundle.min.js | url'}}" as="script"> #}
+    <link rel="stylesheet" href="{{ '/css/style.css' | url }}" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/theme-toggles@4.10.1/css/simple.min.css"
+    />
+    <link rel="preload" href="{{ bundle.js | url}}" as="script" />
+
+    {#
+    <link
+      rel="preload"
+      href="{{ '/js/winbox.bundle.min.js | url'}}"
+      as="script"
+    />
+    #}
   </head>
   <body>
     {# {% include "nav.njk" %} #}
     <header>
       <h1>~{{ title }}$</h1>
+      <button
+        id="toggler"
+        class="theme-toggle"
+        type="button"
+        title="Toggle theme"
+        aria-label="Toggle theme"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          width="2.5em"
+          height="2.5em"
+          class="theme-toggle__simple"
+          fill="currentColor"
+          viewBox="0 0 32 32"
+        >
+          <clipPath id="theme-toggle__simple__cutout">
+            <path d="M0-5h55v37h-55zm32 12a1 1 0 0025 0 1 1 0 00-25 0" />
+          </clipPath>
+          <g clip-path="url(#theme-toggle__simple__cutout)">
+            <circle cx="16" cy="16" r="15" />
+          </g>
+        </svg>
+      </button>
     </header>
 
     {{ content | safe }}
@@ -22,22 +74,19 @@
     <footer>
       <span>{% phosphor "map-pin", "duotone" %} Made in Delhi, IN</span>
       <span>
-        {% phosphor "scroll",
-        "duotone" %}
-        <a href="#" target="_blank">
-        colophon</a>
-        &nbsp;
-          {% phosphor "github-logo", "duotone" %}
-        <a href="#">
-          misaw-kun/site
-        </a>
+        {% phosphor "scroll", "duotone" %}
+        <a href="#" target="_blank"> colophon</a>
+        &nbsp; {% phosphor "github-logo", "duotone" %}
+        <a href="#"> misaw-kun/site </a>
       </span>
     </footer>
 
-    {# for "chaos" mode 🤫 in future #}
-    {# <script src="/js/winbox.bundle.min.js"></script>
+    <script src="bundle.js"></script>
+    {# for "chaos" mode 🤫 in future #} {#
+    <script src="/js/winbox.bundle.min.js"></script>
     <script defer>
-      new WinBox("Test");
-    </script> #}
+      new WinBox("Test")
+    </script>
+    #}
   </body>
 </html>

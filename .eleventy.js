@@ -4,6 +4,7 @@ const eleventyPluginPhosphoricons = require('eleventy-plugin-phosphoricons');
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/css/");
   // eleventyConfig.addPassthroughCopy("./src/js/");
+  eleventyConfig.addPassthroughCopy("./src/bundle.js");
   eleventyConfig.addWatchTarget("./src/css/");
 
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
@@ -18,7 +19,9 @@ module.exports = function (eleventyConfig) {
     fill: "currentColor"
   });
 
+
   return {
+    markdownTemplateEngine: "njk",
     dir: {
       input: "src",
       output: "public",

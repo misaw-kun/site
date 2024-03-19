@@ -3,43 +3,39 @@ layout: base.njk
 ---
 
 <main>
-  <article>
-    {{ content | safe }}
-  </article>
-  <br/>
-  <hr>
+  <article>{{ content | safe }}</article>
+  <br />
+  <hr />
   <div class="blog-list-header">
     <h2>Latest Entries</h2>
-    <a href="/entries">More
-      {% phosphor "caret-double-right", "duotone" %}
-    </a>
+    <a href="/entries">More {% phosphor "caret-double-right", "duotone" %} </a>
   </div>
-  <hr>
-  <br/>
+  <hr />
+  <br />
 
   <ul class="blog-posts">
     <li>
-      <time>{{"2024-03-17" | date}}</time>
+      <time>{{ "2024-03-17" | date }}</time>
       <span></span>
       <a href="#">A post of Markdown elements</a>
     </li>
     <li>
-      <time>{{"2024-03-17" | date}}</time>
+      <time>{{ "2024-03-17" | date }}</time>
       <span></span>
       <a href="#">A post of Markdown elements</a>
     </li>
     <li>
-      <time>{{"2024-03-17" | date}}</time>
+      <time>{{ "2024-03-17" | date }}</time>
       <span></span>
       <a href="#">A post of Markdown elements</a>
     </li>
     <li>
-      <time>{{"2024-03-17" | date}}</time>
+      <time>{{ "2024-03-17" | date }}</time>
       <span></span>
       <a href="#">A post of Markdown elements</a>
     </li>
     <li>
-      <time>{{"2024-03-17" | date}}</time>
+      <time>{{ "2024-03-17" | date }}</time>
       <span></span>
       <a href="#">A post of Markdown elements</a>
     </li>

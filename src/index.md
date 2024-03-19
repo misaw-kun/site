@@ -5,7 +5,7 @@ layout: home.njk
 
 *Hello every-nyan.\
 How are you?\
-Fine, sank-you. <a href="https://www.youtube.com/watch?v=nlLhw1mtCFA" target="_blank">OH MY GAH!</a>*\
+Fine, sank-you. <a href="https://www.youtube.com/watch?v=nlLhw1mtCFA" target="_blank">OH MY GAH! {% phosphor "arrow-square-up-right" %}</a>*\
 \
 &lsaquo; I wish I were a cat. &rsaquo;
 
